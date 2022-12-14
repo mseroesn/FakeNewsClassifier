@@ -38,9 +38,9 @@ def extract_stopwords(text):
     return text_without_stop_words
 
 
-dataSet = CountVectorizer(analyzer=extract_stopwords).fit_transform(dataSet["content"])
+processed_text = CountVectorizer(analyzer=extract_stopwords).fit_transform(dataSet["content"])
 
-xtrain, xtest, ytrain, ytest = train_test_split(dataSet, dataSet['label'], test_size=0.20, random_state=0)
+xtrain, xtest, ytrain, ytest = train_test_split(processed_text, dataSet['label'], test_size=0.20, random_state=0)
 
 
 # setting model
